@@ -21,7 +21,8 @@ function App() {
     let id
     await axios({
       method: 'post',
-      url: 'http://localhost:5000/token',
+      //url: 'http://localhost:5000/token',
+      url: window.location.href+'/token',
       data: {
         email: email
       },
@@ -82,7 +83,8 @@ function App() {
 
         axios({
           method: 'post',
-          url: 'http://localhost:5000/payment',
+          //url: 'http://localhost:5000/payment',
+          url: window.location.href+'/payment',
           data:{
             paymentHandleToken: result.paymentHandleToken,
             amount: result.amount,
