@@ -13,7 +13,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.DB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
