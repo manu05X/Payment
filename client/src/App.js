@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-
+//axios.defaults.baseURL = 'http://localhost:5000'
 
 function App() {
   const [firstname, setfirstname] = useState("")
@@ -22,7 +22,8 @@ function App() {
     await axios({
       method: 'post',
       //url: 'http://localhost:5000/token',
-      url: window.location.href+'/token',
+      //url: window.location.href+'/token',
+      url: '/token',
       data: {
         email: email
       },
@@ -84,7 +85,8 @@ function App() {
         axios({
           method: 'post',
           //url: 'http://localhost:5000/payment',
-          url: window.location.href+'/payment',
+          //url: window.location.href+'/payment',
+          url: '/payment',
           data:{
             paymentHandleToken: result.paymentHandleToken,
             amount: result.amount,
