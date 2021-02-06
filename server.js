@@ -5,6 +5,9 @@ const cors = require('cors');
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
 
+
+const path = require("path");
+
 const app = express();
 
 const User = require('./model/User');
@@ -171,13 +174,14 @@ app.use("/payment", async (req, res) => {
     res.send({data:data})
     
 });
-   
 
-    app.use(express.static(path.join(__dirname, "client", "build")));
+// for opening frontend
+app.use(express.static(path.join(__dirname, "client", "build")));
     
     app.get("/*", (req, res) => {
         res.sendFile(path.join(__dirname, "client", "build", "index.html"));
     });
+
 
 app.listen(process.env.PORT || 5000, () => {
     console.log("Server is running at port 5000 .....");
